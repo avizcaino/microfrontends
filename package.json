@@ -2,9 +2,13 @@
   "name": "microfrontends",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react-app:dev": "lerna run dev --scope @microfrontends/react-app --stream",
+    "react-app:build": "lerna run build --scope @microfrontends/react-app --stream",
+    "registry:start": "lerna run start --scope @microfrontends/registry --stream"
   },
   "author": "",
   "license": "ISC",

@@ -1,0 +1,39 @@
+{
+  "name": "@microfrontends/react-app",
+  "version": "0.0.0",
+  "description": "React App",
+  "author": "Alex Vizcaino <avizcainoluna@gmail.com>",
+  "homepage": "https://github.com/avizcaino/microfrontends#readme",
+  "license": "MIT",
+  "main": "lib/react-app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avizcaino/microfrontends.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@microfrontends/react-app.test.js",
+    "dev": "vite"
+  },
+  "bugs": {
+    "url": "https://github.com/avizcaino/microfrontends/issues"
+  },
+  "dependencies": {
+    "middleware-axios": "^2.1.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^3.1.0",
+    "vite": "^4.2.1"
+  }
+}
