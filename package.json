@@ -6,8 +6,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "host-app:dev": "lerna run dev --scope @microfrontends/host-app --stream",
     "react-app:dev": "lerna run dev --scope @microfrontends/react-app --stream",
     "react-app:build": "lerna run build --scope @microfrontends/react-app --stream",
+    "deploy": "lerna run deploy --stream",
     "registry:start": "lerna run start --scope @microfrontends/registry --stream"
   },
   "author": "",

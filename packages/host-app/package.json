@@ -1,11 +1,11 @@
 {
-  "name": "@microfrontends/react-app",
+  "name": "@microfrontends/host-app",
   "version": "0.0.0",
   "description": "React App",
   "author": "Alex Vizcaino <avizcainoluna@gmail.com>",
   "homepage": "https://github.com/avizcaino/microfrontends#readme",
   "license": "MIT",
-  "main": "lib/react-app.js",
+  "main": "lib/host-app.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -21,10 +21,8 @@
     "url": "git+https://github.com/avizcaino/microfrontends.git"
   },
   "scripts": {
-    "test": "node ./__tests__/@microfrontends/react-app.test.js",
-    "dev": "vite",
-    "build": "vite build",
-    "deploy": "cp .env.development .env && ts-node -P ../../tsconfig.node.json -r reflect-metadata static-server/http-server.ts"
+    "test": "node ./__tests__/@microfrontends/host-app.test.js",
+    "dev": "vite"
   },
   "bugs": {
     "url": "https://github.com/avizcaino/microfrontends/issues"
@@ -35,9 +33,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11",
     "@vitejs/plugin-react": "^3.1.0",
-    "express": "^4.18.2",
     "vite": "^4.2.1"
   }
 }
