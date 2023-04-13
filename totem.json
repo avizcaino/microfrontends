@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "node": "forward_to host",
+    "npm": "forward_to host",
+    "npx": "forward_to host",
+    "yarn": "forward_to host",
+    "sh": "forward_to host",
+    "bash": "forward_to host",
+    "git": "forward_to host",
+    "lerna": "run_on host yarn lerna",
+    "shell": "run_on host bash",
+    "fish": "run_on host sh -c 'command -v fish >/dev/null || (apt-get update && apt-get install -y --no-install-recommends fish nano)' && forward_to host"
+  }
+}
