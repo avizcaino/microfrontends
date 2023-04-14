@@ -4,4 +4,6 @@ import { getModules } from "./bootstrap";
 
 console.log("React App");
 
-getModules().then(createRoot(document.getElementById("root")).render(<App />));
+getModules().then(
+  createRoot(document.getElementById("host-root")).render(<App />)
+);

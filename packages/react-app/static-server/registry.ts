@@ -1,5 +1,5 @@
+import axios from "axios";
 import * as fs from "fs/promises";
-import { create } from "middleware-axios";
 import * as path from "path";
 
 const registryApp = async () => {
@@ -9,8 +9,8 @@ const registryApp = async () => {
       { encoding: "utf8" }
     );
     const manifest = JSON.parse(data);
-    return create({ baseURL: process.env.VITE_REGISTRY_URL })
-      .post("react-app", {
+    return axios
+      .post(`${process.env.VITE_REGISTRY_URL}/react-app`, {
         path: `http://localhost:${process.env.PORT}/${manifest["index.html"]?.file}`,
       })
       .then((r) => Promise.resolve(r))

@@ -1,16 +1,18 @@
-import { create } from "middleware-axios";
-
-const httpClientSingleton = create({
-  baseURL: import.meta.env.VITE_REGISTRY_URL,
-}).axiosInstance;
+import axios from "axios";
 
 export const getModules = async () => {
-  const response = await httpClientSingleton.get("");
-  console.log(response.data);
-  //   await fetch(`${import.meta.env.VITE_REGISTRY_URL}/${APP_NAME}`, {
-  //     method: "POST",
-  //     body: JSON.stringify({ path: import.meta.env.VITE_APP_URL }),
-  //   });
+  const response = await axios.get(import.meta.env.VITE_REGISTRY_URL);
+  Object.values(response.data || {})?.forEach(async (m: any) => {
+    // const moduleResponse = await axios.get(m.path);
+    const newScriptTag = document.createElement("script");
+
+    newScriptTag.onload = (data) => console.log(`Module loaded`, data);
+    newScriptTag.onerror = (error) => console.log(`Module error`, error);
+
+    newScriptTag.src = m.path;
+
+    document.body.appendChild(newScriptTag);
+  });
 
   return Promise.resolve();
 };

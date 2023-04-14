@@ -3,4 +3,7 @@ import { App } from "./App";
 
 console.log("React App");
 
-createRoot(document.getElementById("root")).render(<App />);
+const mountPoint = document.createElement("div");
+document.body.appendChild(mountPoint);
+
+createRoot(mountPoint).render(<App />);
