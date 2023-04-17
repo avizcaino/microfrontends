@@ -21,6 +21,11 @@ class App extends HTMLElement {
 
 window.customElements.define("ce-app", App);
 
-const host = document.createElement("host");
-host.innerHTML = `<ce-app />`;
-document.body.appendChild(host);
+(function () {
+  const initialize = (hostId) => {
+    const host = document.getElementById(hostId);
+    host.innerHTML = `<ce-app />`;
+  };
+
+  window[process.env.VITE_APP_ID || "ce-app"] = { initialize };
+})();

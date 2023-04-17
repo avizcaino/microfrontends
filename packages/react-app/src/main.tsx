@@ -3,7 +3,11 @@ import { App } from "./App";
 
 console.log("React App");
 
-const mountPoint = document.createElement("div");
-document.body.appendChild(mountPoint);
+(function () {
+  const initialize = (hostId: string) => {
+    const host = document.getElementById(hostId);
+    createRoot(host).render(<App />);
+  };
 
-createRoot(mountPoint).render(<App />);
+  window[import.meta.env.VITE_APP_ID] = { initialize };
+})();

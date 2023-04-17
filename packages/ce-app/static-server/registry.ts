@@ -3,7 +3,7 @@ import axios from "axios";
 const registryApp = async () => {
   try {
     return axios
-      .post(`${process.env.REGISTRY_URL}/ce-app`, {
+      .post(`${process.env.REGISTRY_URL}/${process.env.APP_ID}`, {
         path: `http://localhost:${process.env.PORT}/index.js`,
       })
       .then((r) => Promise.resolve(r))

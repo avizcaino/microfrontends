@@ -1,3 +1,9 @@
 export const App = () => {
-  return <h1>Host App</h1>;
+  return (
+    <div>
+      <h1>Host App</h1>
+      <div id="react-host" />
+      <div id="ce-host" />
+    </div>
+  );
 };
