@@ -3,6 +3,7 @@ import axios from "axios";
 const hostDictionary = {
   "ce-app": "ce-host",
   "react-app": "react-host",
+  "vue-app": "vue-host",
 };
 
 export const getModules = async () => {
@@ -13,15 +14,15 @@ export const getModules = async () => {
     const newScriptTag = document.createElement("script");
 
     newScriptTag.onload = (data) => {
-      console.log(`Module loaded`, data);
+      console.log(`Module loaded ${k}`, data);
       const callbackScript = document.createElement("script");
 
       const hostId = hostDictionary[k];
-      callbackScript.innerHTML = `window['${k}'].initialize('${hostId}')`;
+      callbackScript.innerHTML = `window['${k}'] && window['${k}'].initialize && window['${k}'].initialize('${hostId}')`;
 
       document.body.appendChild(callbackScript);
     };
-    newScriptTag.onerror = (error) => console.log(`Module error`, error);
+    newScriptTag.onerror = (error) => console.log(`Module error ${k}`, error);
 
     newScriptTag.src = response.data[k].path;
 

@@ -6,4 +6,7 @@ export default defineConfig({
     host: process.env.VITE_HOST,
   },
   plugins: [react()],
+  build: {
+    minify: false,
+  },
 });

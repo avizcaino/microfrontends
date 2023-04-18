@@ -9,8 +9,12 @@
     "host-app:dev": "lerna run dev --scope @microfrontends/host-app --stream",
     "react-app:dev": "lerna run dev --scope @microfrontends/react-app --stream",
     "react-app:build": "lerna run build --scope @microfrontends/react-app --stream",
+    "vue-app:dev": "lerna run dev --scope @microfrontends/vue-app --stream",
+    "vue-app:build": "lerna run build --scope @microfrontends/vue-app --stream",
+    "angular-app:dev": "lerna run start --scope @microfrontends/angular-app --stream",
+    "angular-app:build": "lerna run build --scope @microfrontends/angular-app --stream",
     "deploy": "lerna run deploy --stream",
-    "registry:start": "lerna run start --scope @microfrontends/registry --stream"
+    "registry:start": "lerna run start --scope @microfrontends/registry --stream --parallel"
   },
   "author": "",
   "license": "ISC",

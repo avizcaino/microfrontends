@@ -1,6 +1,6 @@
 const template = document.createElement("template");
 template.innerHTML = `
-    <h2>Custom Element App</h2>
+    <div>This is a Custom Element</div>
   `;
 
 class App extends HTMLElement {
@@ -23,6 +23,7 @@ window.customElements.define("ce-app", App);
 
 (function () {
   const initialize = (hostId) => {
+    console.log(`Initialize CustomElementApp in ${hostId}`);
     const host = document.getElementById(hostId);
     host.innerHTML = `<ce-app />`;
   };
