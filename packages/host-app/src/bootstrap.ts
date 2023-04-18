@@ -1,3 +1,4 @@
+import { AppRegistration } from "@microfrontends/registry";
 import axios from "axios";
 
 const hostDictionary = {
@@ -8,24 +9,18 @@ const hostDictionary = {
 
 export const getModules = async () => {
   const response = await axios.get(import.meta.env.VITE_REGISTRY_URL);
-  Object.keys(response.data || {})?.forEach(async (k: any) => {
-    // const moduleResponse = await axios.get(m.path);
-    console.log(k);
+  Object.keys(response.data || {})?.forEach(async (k: string) => {
     const newScriptTag = document.createElement("script");
     newScriptTag.type = "module";
 
     newScriptTag.onload = (data) => {
       console.log(`Module loaded ${k}`, data);
-      const callbackScript = document.createElement("script");
-
       const hostId = hostDictionary[k];
-      callbackScript.innerHTML = `window['${k}'] && window['${k}'].initialize && window['${k}'].initialize('${hostId}')`;
-
-      document.body.appendChild(callbackScript);
+      window[k]?.initialize && window[k]?.initialize(hostId);
     };
-    newScriptTag.onerror = (error) => console.log(`Module error ${k}`, error);
+    newScriptTag.onerror = (error) => console.warn(`Module error ${k}`, error);
 
-    newScriptTag.src = response.data[k].path;
+    newScriptTag.src = (response.data[k] as AppRegistration).entryPoint;
 
     document.body.appendChild(newScriptTag);
   });

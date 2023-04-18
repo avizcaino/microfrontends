@@ -1,11 +1,12 @@
-interface App {
-  path: string;
+export interface AppRegistration {
+  entryPoint: string;
+  route: string;
 }
 
 class DB {
-  protected apps: { [id: string]: App } = {};
+  protected apps: { [id: string]: AppRegistration } = {};
 
-  registerApp(id: string, app: App) {
+  registerApp(id: string, app: AppRegistration) {
     this.apps[id] = app;
   }
 
