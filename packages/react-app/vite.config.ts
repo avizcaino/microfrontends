@@ -9,5 +9,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     manifest: true,
+    rollupOptions: {
+      output: {
+        format: "iife",
+      },
+      // external: (id) => id === "react",
+      // external: [/node_modules/],
+    },
   },
 });

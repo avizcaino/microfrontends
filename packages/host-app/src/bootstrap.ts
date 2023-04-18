@@ -12,6 +12,7 @@ export const getModules = async () => {
     // const moduleResponse = await axios.get(m.path);
     console.log(k);
     const newScriptTag = document.createElement("script");
+    newScriptTag.type = "module";
 
     newScriptTag.onload = (data) => {
       console.log(`Module loaded ${k}`, data);

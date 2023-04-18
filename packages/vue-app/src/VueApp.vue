@@ -4,7 +4,7 @@ import TheWelcome from "./components/TheWelcome.vue";
 </script>
 
 <template>
-  <div>This is a Vue App</div>
+  <h2>This is a Vue App</h2>
 </template>
 
 <style scoped>
