@@ -3,8 +3,19 @@ import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
 </script>
 
+<script>
+export default {
+  data() {
+    return {
+      appId: `/${import.meta.env.VITE_APP_ID}`,
+    };
+  },
+};
+</script>
+
 <template>
   <h2>This is a Vue App</h2>
+  <a :href=appId>Open Vue App</a>
 </template>
 
 <style scoped>

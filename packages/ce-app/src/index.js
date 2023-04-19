@@ -1,6 +1,6 @@
 const template = document.createElement("template");
 template.innerHTML = `
-    <h2>This is a Custom Element</h2>
+    <div><h2>This is a Custom Element</h2><a href="/ce-app">Access App</a></div>
   `;
 
 class App extends HTMLElement {

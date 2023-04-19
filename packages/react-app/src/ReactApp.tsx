@@ -11,7 +11,7 @@ export const ReactApp = () => {
       <button onClick={handleClick}>
         {active ? "Hide shown text" : "Show hidden text"}
       </button>
-      {active && <div>Hidden text</div>}
+      {active && <a href={`/${import.meta.env.VITE_APP_ID}`}>Open React App</a>}
     </>
   );
 };

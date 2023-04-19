@@ -12,7 +12,7 @@ const registryApp = async () => {
     const manifest = JSON.parse(data);
     return axios
       .post(`${process.env.VITE_REGISTRY_URL}/${process.env.VITE_APP_ID}`, {
-        entryPoint: `http://localhost:${process.env.PORT}/${manifest["index.html"]?.file}`,
+        entryPoint: `http://localhost:${process.env.VITE_PORT}/${manifest["index.html"]?.file}`,
         route: process.env.VITE_APP_ID,
       } as AppRegistration)
       .then((r) => Promise.resolve(r))

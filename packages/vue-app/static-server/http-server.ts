@@ -10,7 +10,7 @@ process.title = "microfrontends-vue-app";
 app.use(Express.static(path.join(__dirname, "/../dist")));
 
 registryApp().then(() =>
-  app.listen(process.env.PORT, () =>
-    console.log(`Running VueApp on port ${process.env.PORT}`)
+  app.listen(process.env.VITE_PORT, () =>
+    console.log(`Running VueApp on port ${process.env.VITE_PORT}`)
   )
 );

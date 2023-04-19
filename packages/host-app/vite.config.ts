@@ -4,6 +4,26 @@ import { defineConfig } from "vite";
 export default defineConfig({
   server: {
     host: process.env.VITE_HOST,
+    proxy: {
+      "/react-app": {
+        target: "http://localhost:8001/index.html",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace("/react-app", ""),
+      },
+      "/ce-app": {
+        target: "http://localhost:8002/index.html",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace("/ce-app", ""),
+      },
+      "/vue-app": {
+        target: "http://localhost:8003/index.html",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace("/vue-app", ""),
+      },
+    },
   },
   plugins: [react()],
   build: {
