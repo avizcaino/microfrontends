@@ -3,8 +3,10 @@ export interface AppRegistration {
   route: string;
 }
 
+export type AppRegistry = { [id: string]: AppRegistration };
+
 class DB {
-  protected apps: { [id: string]: AppRegistration } = {};
+  protected apps: AppRegistry = {};
 
   registerApp(id: string, app: AppRegistration) {
     this.apps[id] = app;

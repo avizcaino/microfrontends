@@ -1,3 +1,4 @@
+import "react";
 import { createRoot } from "react-dom/client";
 import { HostApp } from "./HostApp";
 import { getModules } from "./bootstrap";
