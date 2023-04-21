@@ -6,7 +6,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && cp .env.development .env && ts-node -P ../../tsconfig.node.json -r reflect-metadata static-server/http-server.ts"
+    "mf:build": "vite build --base=/$VITE_APP_ID",
+    "mf:server": "ts-node -P ../../tsconfig.node.json -r reflect-metadata static-server/http-server.ts",
+    "mf:deploy": "cp .env.development .env && npm run mf:build && npm run mf:server"
   },
   "dependencies": {
     "vue": "^3.2.47"

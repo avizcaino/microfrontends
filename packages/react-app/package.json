@@ -24,7 +24,9 @@
     "test": "node ./__tests__/@microfrontends/react-app.test.js",
     "dev": "vite",
     "build": "vite build",
-    "deploy": "npm run build && cp .env.development .env && ts-node -P ../../tsconfig.node.json -r reflect-metadata static-server/http-server.ts"
+    "mf:build": "vite build --base=/$VITE_APP_ID",
+    "mf:server": "ts-node -P ../../tsconfig.node.json -r reflect-metadata static-server/http-server.ts",
+    "mf:deploy": "cp .env.development .env && npm run mf:build && npm run mf:server"
   },
   "bugs": {
     "url": "https://github.com/avizcaino/microfrontends/issues"

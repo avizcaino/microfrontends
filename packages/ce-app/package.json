@@ -23,7 +23,9 @@
   "scripts": {
     "test": "node ./__tests__/@microfrontends/ce-app.test.js",
     "build": "browserify src/index.js -o dist/index.js",
-    "deploy": "npm run build && cp .env.development .env && ts-node -P ../../tsconfig.node.json -r reflect-metadata static-server/http-server.ts"
+    "mf:build": "browserify src/index.js -o dist/index.js",
+    "mf:server": "ts-node -P ../../tsconfig.node.json -r reflect-metadata static-server/http-server.ts",
+    "mf:deploy": "cp .env.development .env && npm run mf:build && npm run mf:server"
   },
   "bugs": {
     "url": "https://github.com/avizcaino/microfrontends/issues"

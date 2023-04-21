@@ -13,7 +13,7 @@
     "vue-app:build": "lerna run build --scope @microfrontends/vue-app --stream",
     "angular-app:dev": "lerna run start --scope @microfrontends/angular-app --stream",
     "angular-app:build": "lerna run build --scope @microfrontends/angular-app --stream",
-    "deploy": "lerna run deploy --stream",
+    "mf:deploy": "lerna run mf:deploy --stream",
     "registry:start": "lerna run start --scope @microfrontends/registry --stream --parallel"
   },
   "author": "",
